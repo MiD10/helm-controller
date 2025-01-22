@@ -26,7 +26,7 @@ import (
 	kustypes "sigs.k8s.io/kustomize/api/types"
 	"sigs.k8s.io/kustomize/kyaml/filesys"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
+	"gitlab.alibaba-inc.com/dbpaas/fluxcd-pkg/apis/kustomize"
 )
 
 // Kustomize is a Helm post-render plugin that runs Kustomize.
@@ -34,7 +34,9 @@ type Kustomize struct {
 	// Patches is a list of patches to apply to the rendered manifests.
 	Patches []kustomize.Patch
 	// Images is a list of images to replace in the rendered manifests.
-	Images []kustomize.Image
+	Images     []kustomize.Image
+	Labels     []kustypes.Label
+	NameSuffix string
 }
 
 func (k *Kustomize) Run(renderedManifests *bytes.Buffer) (modifiedManifests *bytes.Buffer, err error) {
@@ -42,7 +44,9 @@ func (k *Kustomize) Run(renderedManifests *bytes.Buffer) (modifiedManifests *byt
 	cfg := kustypes.Kustomization{}
 	cfg.APIVersion = kustypes.KustomizationVersion
 	cfg.Kind = kustypes.KustomizationKind
+	cfg.NameSuffix = k.NameSuffix
 	cfg.Images = adaptImages(k.Images)
+	cfg.Labels = k.Labels
 
 	// Add rendered Helm output as input resource to the Kustomization.
 	const input = "helm-output.yaml"

@@ -40,11 +40,11 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/envtest"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/ssa"
 	"github.com/fluxcd/pkg/ssa/jsondiff"
 	ssanormalize "github.com/fluxcd/pkg/ssa/normalize"
 	ssautil "github.com/fluxcd/pkg/ssa/utils"
+	"gitlab.alibaba-inc.com/dbpaas/fluxcd-pkg/apis/kustomize"
 
 	v2 "github.com/fluxcd/helm-controller/api/v2"
 	"github.com/fluxcd/helm-controller/internal/kube"

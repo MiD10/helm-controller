@@ -47,7 +47,6 @@ import (
 
 	"github.com/fluxcd/pkg/apis/acl"
 	aclv1 "github.com/fluxcd/pkg/apis/acl"
-	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/apis/meta"
 	"github.com/fluxcd/pkg/chartutil"
 	"github.com/fluxcd/pkg/runtime/conditions"
@@ -55,6 +54,7 @@ import (
 	"github.com/fluxcd/pkg/runtime/patch"
 	sourcev1 "github.com/fluxcd/source-controller/api/v1"
 	sourcev1beta2 "github.com/fluxcd/source-controller/api/v1beta2"
+	"gitlab.alibaba-inc.com/dbpaas/fluxcd-pkg/apis/kustomize"
 
 	v2 "github.com/fluxcd/helm-controller/api/v2"
 	intacl "github.com/fluxcd/helm-controller/internal/acl"

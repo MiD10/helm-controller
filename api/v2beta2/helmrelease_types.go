@@ -25,8 +25,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/yaml"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/apis/meta"
+	"gitlab.alibaba-inc.com/dbpaas/fluxcd-pkg/apis/kustomize"
 
 	v2 "github.com/fluxcd/helm-controller/api/v2"
 )

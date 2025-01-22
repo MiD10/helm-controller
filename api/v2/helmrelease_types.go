@@ -25,8 +25,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/yaml"
 
-	"github.com/fluxcd/pkg/apis/kustomize"
 	"github.com/fluxcd/pkg/apis/meta"
+	"gitlab.alibaba-inc.com/dbpaas/fluxcd-pkg/apis/kustomize"
 )
 
 const (
@@ -195,6 +195,15 @@ type Kustomize struct {
 	// patch, but this operator is simpler to specify.
 	// +optional
 	Images []kustomize.Image `json:"images,omitempty" json:"images,omitempty"`
+
+	// Labels to add to all objects but not selectors.
+	// +optional
+	Labels []kustomize.Label `json:"labels,omitempty" json:"labels,omitempty"`
+
+	// NameSuffix will suffix the names of all resources mentioned in the kustomization
+	// file including generated configmaps and secrets.
+	// +optional
+	NameSuffix string `json:"nameSuffix,omitempty" json:"nameSuffix,omitempty"`
 }
 
 // PostRenderer contains a Helm PostRenderer specification.
